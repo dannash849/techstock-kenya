@@ -1,27 +1,26 @@
 <?php
 
 $host = "mysql-e1ae416-danmusyimi63-bd3d.b.aivencloud.com";
-$port = 28610;
-$dbname = "defaultdb";
 $username = "avnadmin";
-$password = getenv("DB_PASSWORD");
+$password = getenv("DB_PASSWORD"); 
+$database = "defaultdb";
+$port = 28610;
 
 $conn = mysqli_init();
-
 mysqli_ssl_set($conn, NULL, NULL, NULL, NULL, NULL);
 
-mysqli_real_connect(
+$connected = mysqli_real_connect(
     $conn,
     $host,
     $username,
     $password,
-    $dbname,
+    $database,
     $port,
     NULL,
     MYSQLI_CLIENT_SSL
 );
 
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
+if (!$connected) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
