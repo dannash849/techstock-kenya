@@ -3,7 +3,7 @@
 $host = "mysql-e1ae416-danmusyimi63-bd3d.b.aivencloud.com";
 $username = "avnadmin";
 $password = getenv("DB_PASSWORD"); 
-$database = "defaultdb";
+$database = "techstock_db";
 $port = 28610;
 
 $conn = mysqli_init();
